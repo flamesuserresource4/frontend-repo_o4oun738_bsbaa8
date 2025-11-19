@@ -1,4 +1,7 @@
 import { Brain, Cpu, Smartphone, Globe, PenTool, ShieldCheck, ArrowRight } from 'lucide-react'
+import LottieIcon from './LottieIcon'
+import arrowAnim from './animations/arrow.json'
+import sparkAnim from './animations/spark.json'
 
 const services = [
   {
@@ -42,6 +45,12 @@ export default function Services() {
           {services.map(({ title, desc, icon: Icon }) => (
             <a key={title} href="#contact" className="group relative p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur text-white overflow-hidden">
               <div className="absolute -inset-1 bg-gradient-to-tr from-[#0AF]/0 via-[#8B5CF6]/10 to-[#FF0080]/0 opacity-0 group-hover:opacity-100 blur-2xl transition pointer-events-none" />
+
+              {/* subtle spark micro-animation */}
+              <div className="absolute right-3 top-3 opacity-60 group-hover:opacity-100 transition">
+                <LottieIcon animationData={sparkAnim} size={28} />
+              </div>
+
               <div className="relative flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-white/10 border border-white/10">
                   <Icon className="text-white" size={22} />
@@ -53,7 +62,8 @@ export default function Services() {
               </div>
               <div className="mt-6 inline-flex items-center gap-2 text-[#0AF] opacity-90 group-hover:translate-x-1 transition">
                 <span>Learn More</span>
-                <ArrowRight size={18} />
+                <ArrowRight size={18} className="hidden sm:block" />
+                <LottieIcon animationData={arrowAnim} size={18} className="sm:hidden" />
               </div>
             </a>
           ))}

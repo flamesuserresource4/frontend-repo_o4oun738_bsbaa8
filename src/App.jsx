@@ -10,6 +10,7 @@ import Process from './components/Process'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import BackgroundFX from './components/BackgroundFX'
 
 function Background() {
   return (
@@ -17,6 +18,7 @@ function Background() {
       <div className="absolute inset-0 bg-slate-950" />
       <div className="absolute inset-0 bg-[radial-gradient(80%_50%_at_50%_-10%,rgba(0,170,255,0.15),transparent),radial-gradient(60%_40%_at_80%_10%,rgba(139,92,246,0.12),transparent),radial-gradient(60%_40%_at_10%_80%,rgba(255,0,128,0.08),transparent)]" />
       <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)', backgroundSize: '18px 18px' }} />
+      <BackgroundFX className="opacity-70" />
     </div>
   )
 }

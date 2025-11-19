@@ -1,4 +1,7 @@
 import { motion } from 'framer-motion'
+import LottieIcon from './LottieIcon'
+import checkAnim from './animations/check.json'
+import arrowAnim from './animations/arrow.json'
 
 const projects = [
   {
@@ -37,7 +40,7 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-semibold text-white">Featured Projects</h2>
         <div className="mt-10 grid md:grid-cols-2 gap-6">
-          {projects.map((p, idx) => (
+          {projects.map((p) => (
             <motion.div
               key={p.title}
               whileHover={{ y: -4 }}
@@ -45,12 +48,21 @@ export default function Projects() {
             >
               <div className="absolute -inset-1 opacity-0 group-hover:opacity-100 bg-gradient-to-tr from-[#0AF]/0 via-[#8B5CF6]/15 to-[#FF0080]/0 blur-2xl transition pointer-events-none" />
               <div className="relative">
-                <div className="text-white/90 font-medium">{p.title}</div>
+                <div className="flex items-center gap-2 text-white/90 font-medium">
+                  <LottieIcon animationData={checkAnim} size={20} />
+                  <span>{p.title}</span>
+                </div>
                 <div className="text-white/60 text-sm mt-1">Tech: {p.tech}</div>
                 <div className="text-white/70 text-sm mt-3">{p.stats}</div>
                 <div className="mt-5 flex gap-3">
-                  <a href="#" className="px-4 py-2 rounded-xl text-xs text-white bg-[#0AF]/20 border border-[#0AF]/30">{p.cta1}</a>
-                  <a href="#" className="px-4 py-2 rounded-xl text-xs text-white/90 border border-white/20 bg-white/5">{p.cta2}</a>
+                  <a href="#" className="group/btn px-4 py-2 rounded-xl text-xs text-white bg-[#0AF]/20 border border-[#0AF]/30 inline-flex items-center gap-2">
+                    {p.cta1}
+                    <LottieIcon animationData={arrowAnim} size={14} />
+                  </a>
+                  <a href="#" className="group/btn px-4 py-2 rounded-xl text-xs text-white/90 border border-white/20 bg-white/5 inline-flex items-center gap-2">
+                    {p.cta2}
+                    <LottieIcon animationData={arrowAnim} size={14} />
+                  </a>
                 </div>
               </div>
             </motion.div>
